@@ -1,0 +1,23 @@
+GET http://localhost:3001/api/v1/meetings/
+
+
+###
+POST http://localhost:3001/api/v1/meetings/ HTTP/1.1
+Content-Type: application/json
+							
+{
+    "title": "meeting 4",
+    "description": "description meeting 4",
+    "time": "14hs",
+    "userId": "user4",
+    "message": "exmaple message",
+    "summary": "example summary",
+    "url": "https://google.com",
+    "users": ""
+}
+
+###
+GET http://localhost:3001/api/v1/meetings/1
+
+###
+DELETE  http://localhost:3001/api/v1/meetings/1
