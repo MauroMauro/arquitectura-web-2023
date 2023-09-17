@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3001/api/v1/meetings/1
+GET http://localhost:3001/api/v1/meetings/6507607702c595a7d2704ed7
 
 ###
-DELETE  http://localhost:3001/api/v1/meetings/1
+DELETE  http://localhost:3001/api/v1/meetings/65076a3eab6fd1e12d185996
