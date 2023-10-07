@@ -6,14 +6,59 @@ POST http://localhost:3001/api/products/ HTTP/1.1
 Content-Type: application/json
 							
 {
-    "name": "Químico A",
+    "name": "Químico B",
     "description": "Químico para elaboración",
     "expiration": "10-10-25",
     "type": "Insumo Productivo - Tamaño B5 - Dimensiones C40 - No apilable - Refrigerable -5"
 }
 
 ###
-GET http://localhost:3001/api/products/6521aead21c738e40ed4dc82
+GET http://localhost:3001/api/products/6521d39e6a6544dd1471ba1a
 
 ###
-DELETE  http://localhost:3001/api/products/6521aead21c738e40ed4dc82
+DELETE  http://localhost:3001/api/products/6521d39e6a6544dd1471ba1a
+
+
+### user creation
+POST http://localhost:3001/api/users/ HTTP/1.1
+Content-Type: application/json
+							
+{
+    "username": "mauro",
+    "password": "salami"
+}
+
+### user login
+POST http://localhost:3001/api/login/ HTTP/1.1
+Content-Type: application/json
+							
+{
+    "username": "mauro",
+    "password": "salami"
+}
+
+### POST with JSON web token implemented
+POST http://localhost:3001/api/products/ HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdXJvIiwiaWQiOiI2NTIxZDEyZGY1MWFlMDFmMGJlNjQxMGUiLCJpYXQiOjE2OTY3MTUyNjh9.5f2Cpbzz2Z67pBBlOyn9XOyhhkKOeKVVLtBU5cApTzQ
+							
+{
+    "name": "Químico B",
+    "description": "Químico para elaboración",
+    "expiration": "10-10-25",
+    "type": "Insumo Productivo - Tamaño B5 - Dimensiones C40 - No apilable - Refrigerable -5"
+}
+
+### PUT with JSON web token
+PUT http://localhost:3001/api/products/6521d35cf51ae01f0be64115 HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdXJvIiwiaWQiOiI2NTIxZDEyZGY1MWFlMDFmMGJlNjQxMGUiLCJpYXQiOjE2OTY3MTY3MDh9.htFaq6ad7PJQxmjk7ybUTINYfR9qXjfKb4jqRAUZ7GY
+
+{
+    "type": "Semielaborado - Tamaño B5 - Dimensiones C40 - Apilable - Refrigerable -5"
+}
+
+### DELETE with JSON web token implemented
+DELETE http://localhost:3001/api/products/6521d39e6a6544dd1471ba1a HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdXJvIiwiaWQiOiI2NTIxZDEyZGY1MWFlMDFmMGJlNjQxMGUiLCJpYXQiOjE2OTY3MTY3MDh9.htFaq6ad7PJQxmjk7ybUTINYfR9qXjfKb4jqRAUZ7GY
