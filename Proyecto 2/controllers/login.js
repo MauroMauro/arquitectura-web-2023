@@ -22,10 +22,12 @@ loginRouter.post('/', async (request, response) => {
     id: user._id,
   }
 
-  /*
-  Si la contraseña es correcta, se crea un token con el método jwt.sign. El token contiene el nombre de usuario y la identificación de usuario en un formulario firmado digitalmente
-  */
-  const token = jwt.sign(userForToken, process.env.SECRET)
+  // token expires in 60*60 seconds; one hour
+  const token = jwt.sign(
+    userForToken, 
+    process.env.SECRET,
+    { expiresIn: 60*60 }
+  )
 
   response
   .status(200)
@@ -33,3 +35,4 @@ loginRouter.post('/', async (request, response) => {
 })
 
 module.exports = loginRouter
+

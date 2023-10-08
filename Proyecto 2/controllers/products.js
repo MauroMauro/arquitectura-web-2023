@@ -21,8 +21,10 @@ productsRouter.get('/:id', async (request, response) => {
     const product = await Product.findById(request.params.id)
     if (!product) {
         response.status(404).end()
+    }else{
+        response.json(product)
     }
-    response.json(product)
+    
 })
 
 
