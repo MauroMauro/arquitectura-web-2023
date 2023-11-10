@@ -16,6 +16,8 @@ Los datos de la aplicación se almacenarán en una base de datos MongoDB.
 
 Implementa la gestión de usuarios.
 
+Implementa un  frontend creado con React.
+
 ---
 
 ### Tecnologías utilizadas 🔧
