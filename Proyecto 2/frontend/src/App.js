@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
+import {
+  BrowserRouter as Router,
+  Routes, Route, Link
+} from "react-router-dom"
 
-function App() {
+import Home from './components/Home'
+import Notifications from './components/Notification'
+import BloqueProductos from './components/BloqueProductos'
+
+// Estilos
+import Button from 'react-bootstrap/Button'
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Container from 'react-bootstrap/Container';
+
+const App =() => {
+  const [notification, setNotification] = useState(null)
+  const [errorNotification, setErrorNotification] = useState(null)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <Nav.Link href="http://localhost:3000">Home</Nav.Link>
+      <Nav.Link href="http://localhost:3000/productos">Productos</Nav.Link>
+      <h1>Aplicación de productos - Arquitectura web</h1>
+
+      <Notifications.Notification message={notification} />
+      <Notifications.ErrorNotification message={errorNotification} />
+
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/productos" element={<BloqueProductos setNotification={setNotification} setErrorNotification={setErrorNotification} />} />
+        </Routes>
+      </Router>
+
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
