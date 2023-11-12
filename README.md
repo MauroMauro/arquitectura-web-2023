@@ -18,6 +18,7 @@ Implementa la gestión de usuarios.
 
 Implementa un  frontend creado con React.
 
+Detalles del proyecto: https://youtu.be/XgVm28wqy5k
 ---
 
 ### Tecnologías utilizadas 🔧
