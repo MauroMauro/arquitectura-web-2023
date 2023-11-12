@@ -16,6 +16,7 @@ const BloqueProductos = ({ setNotification, setErrorNotification }) => {
     const [newDescriptionProduct, setNewDescriptionProduct] = useState('')
     const [newExpirationProduct, setNewExpirationProduct] = useState('')
     const [newTypeProduct, setNewTypeProduct] = useState('')
+    const [pulsed, setPulsed] = useState(false)
 
     useEffect(() => {
         productoServicio
@@ -100,22 +101,40 @@ const BloqueProductos = ({ setNotification, setErrorNotification }) => {
                 setErrorNotification={setErrorNotification}
             />
             <hr></hr>
-            <h2>Agregar producto al inventario</h2>
-            <Form onSubmit={addProduct}>
-                <Form.Label >Name:</Form.Label><br></br>
-                <input value={newNameProduct} onChange={handleProductNameChange} />
-                <br></br>
-                <Form.Label >Descripción:</Form.Label><br></br>
-                <input value={newDescriptionProduct} onChange={handleProductDescriptionChange} />
-                <br></br>
-                <Form.Label >Fecha de expiración:</Form.Label><br></br>
-                <input value={newExpirationProduct} onChange={handleProductExpirationChange} />
-                <br></br>
-                <Form.Label >Tipo:</Form.Label><br></br>
-                <textarea value={newTypeProduct} onChange={handleProductTypeChange} rows="4" cols="30" />
-                <br></br>
-                <Button type="submit" variant="outline-secondary">Agregar</Button>
-            </Form>
+
+            {pulsed ?
+                null
+                :
+                <Button variant="outline-success" onClick={() => setPulsed(!pulsed)}>Agregar nuevo producto al inventario</Button>
+            }
+            {pulsed ?
+                <Form onSubmit={addProduct}>
+                    <Form.Label >Nombre:</Form.Label><br></br>
+                    <input value={newNameProduct} onChange={handleProductNameChange} />
+                    <br></br>
+                    <Form.Label >Descripción:</Form.Label><br></br>
+                    <input value={newDescriptionProduct} onChange={handleProductDescriptionChange} />
+                    <br></br>
+                    <Form.Label >Fecha de expiración:</Form.Label><br></br>
+                    <input value={newExpirationProduct} onChange={handleProductExpirationChange} />
+                    <br></br>
+                    <Form.Label >Tipo:</Form.Label><br></br>
+                    <textarea value={newTypeProduct} onChange={handleProductTypeChange} rows="4" cols="30" />
+                    <br></br>
+                    <Button type="submit" variant="outline-success">Agregar</Button>
+                </Form>
+                :
+                null
+            }
+            {!pulsed ?
+                null
+                :
+                <Button variant="outline-secondary" onClick={() => setPulsed(!pulsed)}>Cancelar</Button>
+            }
+
+
+
+
 
 
         </div>
