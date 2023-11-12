@@ -95,7 +95,7 @@ const App = () => {
             </Navbar.Collapse>
           </Navbar>
 
-          <h1>Aplicación de productos - Arquitectura web</h1>
+          
 
           <Notifications.Notification message={notification} />
           <Notifications.ErrorNotification message={errorNotification} />
