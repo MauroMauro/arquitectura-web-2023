@@ -41,7 +41,7 @@ _React_
 
 ## Autor ✒️
 
-* **Mauricio German Benitez** 
+* **German Benitez** 
 2023
 
 ---
